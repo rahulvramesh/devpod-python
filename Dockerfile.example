@@ -1,0 +1,19 @@
+# Example Dockerfile to demonstrate Docker-in-Docker capability
+# This can be built and run from within the dev container
+
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install UV
+RUN pip install uv
+
+# Copy project files
+COPY pyproject.toml ./
+COPY example.py ./
+
+# Install dependencies using UV
+RUN uv pip install --system -e .
+
+# Run the example
+CMD ["python", "example.py"]

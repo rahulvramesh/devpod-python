@@ -30,6 +30,30 @@ DevContainer for Python with UV package manager and Docker-in-Docker support.
 devpod up github.com/rahulvramesh/devpod-python
 ```
 
+## Quick Start Commands
+
+We provide a Makefile with convenient commands:
+
+```bash
+# Show all available commands
+make help
+
+# Install dependencies
+make install-dev
+
+# Run linter
+make lint
+
+# Format code
+make format
+
+# Build Docker example
+make docker-build
+
+# Run Docker example
+make docker-run
+```
+
 ## Using UV Package Manager
 
 UV is automatically installed in the dev container. Here are some common commands:
@@ -81,11 +105,21 @@ The dev container configuration is located in `.devcontainer/devcontainer.json`.
 ```
 .
 ├── .devcontainer/
-│   ├── devcontainer.json    # Dev container configuration
-│   └── post-create.sh        # Setup script (installs UV)
-├── pyproject.toml            # Python project configuration
-└── README.md                 # This file
+│   ├── devcontainer.json           # Dev container configuration
+│   └── post-create.sh               # Setup script (installs UV)
+├── pyproject.toml                   # Python project configuration
+├── example.py                       # Example Python file
+├── Dockerfile.example               # Example Dockerfile for Docker-in-Docker
+├── docker-compose.example.yml      # Example Docker Compose file
+├── Makefile                         # Convenient make commands
+├── DEVCONTAINER.md                  # Detailed dev container docs
+└── README.md                        # This file
 ```
+
+## Documentation
+
+- **[DEVCONTAINER.md](DEVCONTAINER.md)** - Comprehensive dev container documentation
+- **[README.md](README.md)** - This quick start guide
 
 ## License
 
