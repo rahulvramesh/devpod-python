@@ -1,0 +1,30 @@
+# Example Docker Compose file to demonstrate Docker-in-Docker capability
+# This can be used from within the dev container
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.example
+    container_name: devpod-python-example
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./:/app
+    command: python example.py
+
+  # Example: Add a database service
+  # postgres:
+  #   image: postgres:16
+  #   environment:
+  #     POSTGRES_USER: devuser
+  #     POSTGRES_PASSWORD: devpass
+  #     POSTGRES_DB: devdb
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:
