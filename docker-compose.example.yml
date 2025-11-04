@@ -1,8 +1,6 @@
 # Example Docker Compose file to demonstrate Docker-in-Docker capability
 # This can be used from within the dev container
 
-version: '3.8'
-
 services:
   app:
     build:
